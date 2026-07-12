@@ -5,7 +5,17 @@
     $name ??= '';
     $value ??= '';
 @endphp
+@if ($type=='textarea')
 <div @class(['form-group',$class])>
     <label for="{{ $name }}">{{ $label }}</label>
-    <input type="{{ $type }}" >
+    <textarea id="{{ $name }}" type="{{ $type }}" name="{{ $name }}">{{ $value }}</textarea>
 </div>
+@else
+<div @class(['form-group',$class])>
+    <label for="{{ $name }}">{{ $label }}</label>
+    <input id={{ $name }} type="{{ $type }}" value="{{ $value }}" name="{{ $name }}">
+</div>
+@endif
+@error($name)
+    <div>{{ $message }}</div>
+@enderror
