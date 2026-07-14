@@ -3,20 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\ProductRequest;
-use App\Models\Category;
-use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class PriceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Product::orderBy('created_at','desc')->paginate(25);
-        return view('admin.products.index', compact('products'));
+        //
     }
 
     /**
@@ -24,19 +20,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $product = New Product();
-        $category = Category::pluck('name','id');
-        return view('admin.products.form', compact('product','category'));
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
-        Product::create($request->validated());
-
-        return to_route('admin.product.index')->with('success','Le produit a bien été créé');
+        //
     }
 
     /**
