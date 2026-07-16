@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Price;
+use App\Models\Product;
+use App\Models\Store;
 use Illuminate\Http\Request;
 
 class PriceController extends Controller
@@ -18,9 +21,11 @@ class PriceController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Product $product)
     {
-        //
+        $price = New Price();
+        $store = Store::pluck('name','id');
+        return view('admin.price.form', compact('price','product','store'));
     }
 
     /**

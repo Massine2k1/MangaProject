@@ -16,6 +16,9 @@
         </ul>
         <div>Se connecter</div>
     </nav>
+    @if (session('success'))
+        <div>{{ session('success') }}</div>
+    @endif
     @yield('content')
 </body>
 </html>

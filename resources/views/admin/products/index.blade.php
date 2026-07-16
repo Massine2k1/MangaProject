@@ -16,7 +16,7 @@
     <td>{{ $product->description }}</td>
     <td>Pas encore d'image</td>
     <td>{{ $product->category->name }}</td>
-    <td>Voir les prix</td>
+    <td><a href="{{ route('admin.product.show', $product) }}">Voir les prix</a></td>
   </tr>
   @endforeach
 </table>
